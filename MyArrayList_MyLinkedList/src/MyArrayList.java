@@ -13,10 +13,11 @@ public class MyArrayList implements MyList {
         return false;
     }
 
-
     public void add(Object item) {
+        if(size == data.length) {
+            data = Arrays.copyOf(data, data.length + 1);
+        }
         size++;
-        data = Arrays.copyOf(data, data.length+1);
         data[size]=item;
     }
 
