@@ -121,7 +121,19 @@ public class MyLinkedList<T> implements MyList<T>{
 
     @Override
     public T get(int index) {
-        return null;
+        checkIndex(index);
+        Node present;
+        if (index <= size / 2) {
+            present = head;
+            for (int i = 0; i < index; i++)
+                present = present.next;
+        }
+        else {
+            present = tail;
+            for (int i = size - 1; i > index; i--)
+                present = present.previous;
+        }
+        return (T) present.data;
     }
 
     @Override
