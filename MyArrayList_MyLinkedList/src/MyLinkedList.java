@@ -66,6 +66,29 @@ public class MyLinkedList<T> implements MyList<T>{
 
     @Override
     public void add(Object item, int index) {
+
+    }
+
+
+    private void connectFirst(Node<T> temp){
+        temp.next = head;
+        head.previous = temp;
+        head = temp;
+    }
+
+    private void connectCenter(Node<T> temp, int index){
+        Node<T> prev = getNode(index - 1);
+        Node<T> next = getNode(index);
+        prev.next = temp;
+        temp.previous = next;
+        next.previous = temp;
+        temp.next = next;
+    }
+
+    private void connectLast(Node<T> temp){
+        tail.next = temp;
+        temp.previous = tail;
+        tail = temp;
     }
 
     public Node<T> getNode(int index){ // get node by it index
@@ -87,7 +110,7 @@ public class MyLinkedList<T> implements MyList<T>{
     }
 
     @Override
-    public Object removeByIndex(int index) {
+    public T removeByIndex(int index) {
         return null;
     }
 
@@ -97,7 +120,7 @@ public class MyLinkedList<T> implements MyList<T>{
     }
 
     @Override
-    public Object get(int index) {
+    public T get(int index) {
         return null;
     }
 
