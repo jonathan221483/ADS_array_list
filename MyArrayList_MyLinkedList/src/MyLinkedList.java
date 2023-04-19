@@ -197,4 +197,8 @@ public class MyLinkedList<T> implements MyList<T>{
         }
         return -1;
     }
+
+    @Override
+    public void sort() {
+    }
 }
