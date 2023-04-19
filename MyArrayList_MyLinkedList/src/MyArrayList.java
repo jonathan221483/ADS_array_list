@@ -2,18 +2,18 @@ import java.util.Arrays;
 public class MyArrayList implements MyList {
 
     private int size;
-    private Object[] data = new Object[3];
-    @Override
+    private Object[] data = new Object[10];
+
     public int size() {
-        return 0;
+        return size;
     }
 
-    @Override
+
     public boolean contains(Object o) {
         return false;
     }
 
-    @Override
+
     public void add(Object item) {
         size++;
         data = Arrays.copyOf(data, data.length+1);
