@@ -57,13 +57,8 @@ public class MyArrayList implements MyList {
     }
 
     public boolean remove(Object item) {
-        for(int i = 0; i < size(); i++){
-            if (data[i].equals(item)){
-                //data.remove(i);
-                return true;
-            }
-        }
-        return false;
+        remove(indexOf(item));
+        return true;
     }
 
     public Object remove(int index) {
