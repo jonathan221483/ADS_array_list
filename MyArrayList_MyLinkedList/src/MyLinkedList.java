@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class MyLinkedList<T> implements MyList<T>{
 
     private Node<T> head;
@@ -34,7 +32,11 @@ public class MyLinkedList<T> implements MyList<T>{
         }
     }
 
-
+        MyLinkedList(){
+            size = 0;
+            head = null;
+            tail = null;
+        }
 
     public int size() {
         return size;
@@ -42,7 +44,19 @@ public class MyLinkedList<T> implements MyList<T>{
 
     @Override
     public boolean contains(Object o) {
+        Node current = head;
+        while (current != null) {
+            if (current.data.equals(o)) {
+                return true;
+            }
+            current = current.next;
+        }
         return false;
+    }
+
+    public void checkIndex(int index){
+        if (index > size)
+            throw new IndexOutOfBoundsException();
     }
 
     @Override
@@ -52,7 +66,19 @@ public class MyLinkedList<T> implements MyList<T>{
 
     @Override
     public void add(Object item, int index) {
+    }
 
+    public Node<T> getNode(int index){ // get node by it index
+        checkIndex(index);
+        Node<T> temp = head;
+        int i = 0;
+        while (temp != null){
+            if (i == index)
+                return temp;
+            i++;
+            temp = temp.next;
+        }
+        return null;
     }
 
     @Override
