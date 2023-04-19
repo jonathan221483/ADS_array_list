@@ -4,7 +4,21 @@ public class Main {
         a.add(1);
         a.add(5);
         a.add(3);
-        a.add(17);
-        System.out.println(a);
+        a.add(7);
+        a.add(1);
+        a.add(3);
+        a.add(87);
+        a.add(1);
+        a.add(8);
+        a.add(3);
+        for (int i = 0; i < a.size(); i++)
+        System.out.print(a.get(i)+", ");
+        System.out.println("");
+        a.remove(2);
+        for (int i = 0; i < a.size(); i++)
+            System.out.print(a.get(i)+", ");
+        System.out.println("");
+        System.out.println(a.indexOf(1));
+        System.out.println(a.lastIndexOf(3));
     }
 }

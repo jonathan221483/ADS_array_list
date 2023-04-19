@@ -36,6 +36,7 @@ public class MyArrayList implements MyList {
         data = temp;
     }
 
+    @Override
     public void add(Object elem, int index) {
         if (index > size)
             throw new IndexOutOfBoundsException();
@@ -48,9 +49,6 @@ public class MyArrayList implements MyList {
         size++;
     }
 
-    public boolean remove(Object item) {
-        return false;
-    }
 
     public void checkIndex(int index){
         if(index < 0 || index>=size){
@@ -58,34 +56,52 @@ public class MyArrayList implements MyList {
         }
     }
 
+    public boolean remove(Object item) {
+        for(int i = 0; i < size(); i++){
+            if (data[i].equals(item)){
+                data.remove(i);
+                return true;
+            }
+        }
+        return false;
+    }
+
     public Object remove(int index) {
         Object temp = get(index);
         for (int i = index; i < size - 1; i++){
-            data[i] = data[i + 1];
+            data[i] = data[i+1];
         }
         size--;
         data[size] = null;
         return temp;
     }
 
+
     public void clear() {
         size = 0;
         data = new Object[5];
     }
 
-    @Override
     public Object get(int index) {
-        return null;
+        checkIndex(index);
+        return data[index];
     }
 
-    @Override
     public int indexOf(Object o) {
-        return 0;
+        for (int i = 0; i < size - 1; i++){
+            if(data[i].equals(o))
+                return i;
+        }
+        return -1;
     }
 
-    @Override
     public int lastIndexOf(Object o) {
-        return 0;
+        int index = -1;
+        for (int i = size-1; i >= 0; i--){
+            if(data[i].equals(o))
+                return i;
+        }
+        return -1;
     }
 
     @Override
