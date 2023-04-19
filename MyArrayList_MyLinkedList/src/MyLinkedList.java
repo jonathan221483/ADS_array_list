@@ -20,12 +20,12 @@ public class MyLinkedList implements MyList{
     }
 
     @Override
-    public boolean remove(Object item) {
+    public boolean removeItem(Object item) {
         return false;
     }
 
     @Override
-    public Object remove(int index) {
+    public Object removeByIndex(int index) {
         return null;
     }
 
