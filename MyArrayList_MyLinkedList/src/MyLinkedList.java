@@ -66,7 +66,23 @@ public class MyLinkedList<T> implements MyList<T>{
 
     @Override
     public void add(Object item, int index) {
-
+        checkIndex(index);
+        Node<T> temp = (Node<T>) new Node<>(item);
+        size ++;
+        if (head == null) {
+            head = temp;
+            tail = temp;
+            return;
+        }
+        if (index == 0) {
+            connectFirst(temp);
+            return;
+        }
+        if (index + 1 != size()) {
+            connectCenter(temp, index);
+            return;
+        }
+        connectLast(temp);
     }
 
 
@@ -116,7 +132,9 @@ public class MyLinkedList<T> implements MyList<T>{
 
     @Override
     public void clear() {
-
+        size = 0;
+        head = null;
+        tail = null;
     }
 
     @Override
