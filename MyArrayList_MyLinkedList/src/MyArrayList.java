@@ -36,19 +36,36 @@ public class MyArrayList implements MyList {
         data = temp;
     }
 
-    @Override
-    public void add(Object item, int index) {
-
+    public void add(Object elem, int index) {
+        if (index > size)
+            throw new IndexOutOfBoundsException();
+        if (size() == data.length)
+            increaseSize();
+        for (int i = size; i > index; i--){
+            data[i] = data[i - 1];
+        }
+        data[index] = elem;
+        size++;
     }
 
-    @Override
     public boolean remove(Object item) {
         return false;
     }
 
-    @Override
+    public void checkIndex(int index){
+        if(index < 0 || index>=size){
+            throw new IndexOutOfBoundsException();
+        }
+    }
+
     public Object remove(int index) {
-        return null;
+        Object temp = get(index);
+        for (int i = index; i < size - 1; i++){
+            data[i] = data[i + 1];
+        }
+        size--;
+        data[size] = null;
+        return temp;
     }
 
     @Override
