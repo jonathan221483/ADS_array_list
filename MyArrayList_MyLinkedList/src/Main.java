@@ -11,14 +11,15 @@ public class Main {
         a.add(1);
         a.add(8);
         a.add(3);
+
         for (int i = 0; i < a.size(); i++)
         System.out.print(a.get(i)+", ");
         System.out.println("");
-        a.remove(2);
+        a.sort();
         for (int i = 0; i < a.size(); i++)
             System.out.print(a.get(i)+", ");
         System.out.println("");
         System.out.println(a.indexOf(1));
-        System.out.println(a.lastIndexOf(3));
+        System.out.println();
     }
 }

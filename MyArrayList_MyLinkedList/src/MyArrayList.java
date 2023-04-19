@@ -59,7 +59,7 @@ public class MyArrayList implements MyList {
     public boolean remove(Object item) {
         for(int i = 0; i < size(); i++){
             if (data[i].equals(item)){
-                data.remove(i);
+                //data.remove(i);
                 return true;
             }
         }
@@ -104,8 +104,10 @@ public class MyArrayList implements MyList {
         return -1;
     }
 
-    @Override
-    public void sort() {
 
+    public void sort() {
+        Arrays.sort(data);
     }
+
+
 }
