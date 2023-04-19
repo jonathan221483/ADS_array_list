@@ -123,6 +123,7 @@ public class MyLinkedList<T> implements MyList<T>{
     @Override
     public boolean removeItem(Object item) {
         removeByIndex(indexOf(item));
+        return true;
     }
 
     @Override
@@ -172,12 +173,30 @@ public class MyLinkedList<T> implements MyList<T>{
 
     @Override
     public int indexOf(Object o) {
-        return 0;
+        Node<T> element = head;
+        int i = 0;
+        while (element != null){
+            if(i==size)
+                return -1;
+            if (element.getData().equals(o))
+                return i;
+            i++;
+            element = element.next;
+        }
+        return -1;
     }
 
     @Override
     public int lastIndexOf(Object o) {
-        return 0;
+        Node<T> element = tail;
+        int i = size - 1;
+        while (element != null){
+            if (element.getData().equals(o))
+                return i;
+            i --;
+            element = element.previous;
+        }
+        return -1;
     }
 
     @Override
