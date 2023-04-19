@@ -4,6 +4,11 @@ public class MyArrayList implements MyList {
     private int size = 0;
     private Object[] data = new Object[10];
 
+    MyArrayList(){
+        this.data = (Object[]) new Object[5];
+        this.size = 0;
+    }
+
     public int size() {
         return size;
     }
@@ -19,10 +24,17 @@ public class MyArrayList implements MyList {
 
     public void add(Object item) {
         if(size == data.length) {
-            data = Arrays.copyOf(data, data.length + 1);
+            increaseSize();
         }
         data[size]=item;
         size++;
+    }
+    private void increaseSize(){
+        Object[] temp = new Object[size * 2];
+        for(int i=0; i< data.length; i++){
+            temp[i]=data[i];
+        }
+        data = temp;
     }
 
     @Override
