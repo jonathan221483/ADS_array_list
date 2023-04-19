@@ -1,7 +1,7 @@
 import java.util.Arrays;
 public class MyArrayList implements MyList {
 
-    private int size;
+    private int size = 0;
     private Object[] data = new Object[10];
 
     public int size() {
@@ -10,6 +10,10 @@ public class MyArrayList implements MyList {
 
 
     public boolean contains(Object o) {
+        for (int i = 0; i < size; i ++){
+            if (data[i].equals(o))
+                return true;
+        }
         return false;
     }
 
@@ -17,8 +21,8 @@ public class MyArrayList implements MyList {
         if(size == data.length) {
             data = Arrays.copyOf(data, data.length + 1);
         }
-        size++;
         data[size]=item;
+        size++;
     }
 
     @Override
