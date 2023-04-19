@@ -1,7 +1,26 @@
-public class MyLinkedList implements MyList{
-    @Override
+import java.util.Arrays;
+
+public class MyLinkedList<T> implements MyList<T>{
+
+    private Node<T> head;
+    private Node<T> tail;
+    private int size = 0;
+
+    private class Node<E>{
+        private E data;
+        private Node<E> next;
+        private Node<E> previous;
+
+        public Node(E data){
+            this.data = data;
+        }
+
+    }
+
+
+
     public int size() {
-        return 0;
+        return size;
     }
 
     @Override
