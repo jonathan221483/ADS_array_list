@@ -68,9 +68,9 @@ public class MyArrayList implements MyList {
         return temp;
     }
 
-    @Override
     public void clear() {
-
+        size = 0;
+        data = new Object[5];
     }
 
     @Override
