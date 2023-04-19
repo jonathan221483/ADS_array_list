@@ -61,7 +61,7 @@ public class MyLinkedList<T> implements MyList<T>{
 
     @Override
     public void add(Object item) {
-
+        add(item, size);
     }
 
     @Override
@@ -122,12 +122,28 @@ public class MyLinkedList<T> implements MyList<T>{
 
     @Override
     public boolean removeItem(Object item) {
-        return false;
+        removeByIndex(indexOf(item));
     }
 
     @Override
     public T removeByIndex(int index) {
-        return null;
+        T temp = get(index);
+        if (index == 0) {
+            head = head.next;
+            if (size > 1) head.previous = null;
+        }
+        else if (index == size) {
+            tail = tail.previous;
+            if (size > 2) tail.next = null;
+        }
+        else {
+            Node<T> previous = getNode(index - 1);
+            Node<T> next = getNode(index + 1);
+            previous.next = next;
+            next.previous = previous;
+        }
+        size--;
+        return temp;
     }
 
     @Override
