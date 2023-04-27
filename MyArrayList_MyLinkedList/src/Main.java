@@ -1,6 +1,6 @@
 public class Main {
     public static void main(String[] args) {
-        /*MyArrayList a = new MyArrayList();
+       MyArrayList a = new MyArrayList();
         a.add(1);
         a.add(5);
         a.add(3);
@@ -12,16 +12,17 @@ public class Main {
         a.add(8);
         a.add(3);
 
-        a.sort();
         for (int i = 0; i < a.size(); i++)
             System.out.print(a.get(i)+", ");
         System.out.println("");
-        System.out.println(a.lastIndexOf(1));
-        System.out.println();*/
+        System.out.println("ArrayList sublist:");
+        Object[] sub = a.sublist(5,9);
+        for (int i = 0; i < sub.length; i++)
+        System.out.print(sub[i]+" ");
+        System.out.println("");
+        System.out.println("");
 
-
-
-        MyArrayList b = new MyArrayList();
+        MyLinkedList b = new MyLinkedList();
         b.add(1);
         b.add(5);
         b.add(3);
@@ -33,11 +34,14 @@ public class Main {
         b.add(45);
         b.add(23);
         for (int i = 0; i < b.size(); i++)
-            System.out.print(b.get(i)+", ");
+            System.out.print(b.get(i)+" ");
         System.out.println("");
-        System.out.println(b.indexOf(23));
-        System.out.println();
-
-
+        System.out.println("LinkedList sublist:");
+        Object[] sub2 = b.sublist(2,6);
+        for (int i = 0; i < sub2.length; i++)
+            System.out.print(sub2[i]+" ");
     }
 }
+
+
+//return sort sublist

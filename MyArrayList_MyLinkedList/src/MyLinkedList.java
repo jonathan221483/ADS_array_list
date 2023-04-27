@@ -1,3 +1,6 @@
+import java.util.Arrays;
+import java.util.Comparator;
+
 public class MyLinkedList<T> implements MyList<T>{
 
     private Node<T> head; //head of the list (first element)
@@ -200,5 +203,42 @@ public class MyLinkedList<T> implements MyList<T>{
 
     @Override
     public void sort() {
+    }
+
+
+
+    public Object[] sublist(int first, int last) {
+        checkIndex(first);
+        checkIndex(last);
+        Object[] sub = new Object[last-first+1];
+        Node present;
+
+        for(int i = first; i<=last; i++) {
+            if (i <= size / 2) {
+                present = head;
+                for (int j = 0; j < i; j++)
+                    present = present.next;
+            } else {
+                present = tail;
+                for (int j = size - 1; j > i; j--)
+                    present = present.previous;
+            }
+            sub[i - first] = present.data;
+        }
+        /*Comparator<Object> c = null;
+        for(int i = 0; i < sub.length; i++)
+        {
+            for(int j = i+1; j < sub.length; j++)
+            {
+                if(c.compare(sub[i],sub[j])>0)
+                {
+                    Object temp = sub[i];
+                    sub[i]=sub[j];
+                    sub[j]=temp;
+                }
+            }
+        }*/
+        Arrays.sort(sub);
+        return sub;
     }
 }

@@ -1,4 +1,6 @@
 import java.util.Arrays;
+import java.util.Comparator;
+
 public class MyArrayList implements MyList {
 
     private int size = 0; //size of array
@@ -9,7 +11,7 @@ public class MyArrayList implements MyList {
         this.size = 0;
     }
 
-    public int size() { //returns the size of arraylist
+        public int size() { //returns the size of arraylist
         return size;
     }
 
@@ -35,6 +37,8 @@ public class MyArrayList implements MyList {
         }
         data = temp;
     }
+
+
 
     @Override
     public void add(Object elem, int index) { //also adds item to arraylist, but user can choose the index where it will be put
@@ -102,6 +106,19 @@ public class MyArrayList implements MyList {
 
     public void sort() { //sorts the arraylist
         Arrays.sort(data);
+    }
+
+    public Object[] sublist(int first, int last) {
+        checkIndex(first);
+        checkIndex(last);
+        Object[] sub = new Object[last-first+1];
+        for(int i = first; i<=last; i++){
+            sub[i - first] = data[i];
+        }
+
+        Arrays.sort(sub);
+
+        return sub;
     }
 
 
